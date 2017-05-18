@@ -22,4 +22,4 @@ COPY config.conf /config.conf
 
 EXPOSE 26010
 
-CMD ["./run.sh"]
+CMD ["/run.sh"]
