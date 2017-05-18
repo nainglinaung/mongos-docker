@@ -19,7 +19,7 @@ RUN mkdir -p /data/db
 COPY run.sh /run.sh
 COPY config.conf /config.conf
 
-# Start the server
-RUN mongod --configsvr --config="config.conf"
 
 EXPOSE 26010
+
+CMD ["./run.sh"]
