@@ -1,1 +1,1 @@
-mongos --configsvr --config="config.conf"
+mongod --configsvr --config="config.conf"
