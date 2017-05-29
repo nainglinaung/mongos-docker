@@ -5,18 +5,18 @@ FROM ubuntu:latest
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
 RUN apt-get update
 RUN apt-get install -y --no-install-recommends software-properties-common
-RUN echo "deb http://repo.mongodb.org/apt/ubuntu $(cat /etc/lsb-release | grep DISTRIB_CODENAME | cut -d= -f2)/mongodb-org/3.2 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-3.2.list
+RUN echo "deb [ arch=amd64,arm64 ] http://repo.mongodb.org/apt/ubuntu "$(lsb_release -sc)"/mongodb-org/3.4 multiverse" | tee /etc/apt/sources.list.d/mongodb-3.4.list
 
 
 # Update apt-get sources AND install MongoDB
-RUN apt-get update && apt-get install -y mongodb-org
-
-
-
+RUN apt-get install mongodb-org=3.4.1 mongodb-org-server=3.4.1 mongodb-org-shell=3.4.1 mongodb-org-mongos=3.4.1 mongodb-org-tools=3.4.10
 
 # Create the MongoDB data directory
 RUN mkdir -p /data/db
+RUN mkdir -p /cert
+
 COPY run.sh /run.sh
+COPY bitkey /cert/bitkey
 COPY config.conf /config.conf
 
 
