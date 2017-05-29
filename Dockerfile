@@ -9,7 +9,7 @@ RUN echo "deb [ arch=amd64,arm64 ] http://repo.mongodb.org/apt/ubuntu "$(lsb_rel
 
 RUN apt-get update
 # Update apt-get sources AND install MongoDB
-RUN apt-get install mongodb-org=3.4.1 mongodb-org-server=3.4.1 mongodb-org-shell=3.4.1 mongodb-org-mongos=3.4.1 mongodb-org-tools=3.4.10
+RUN apt-get install mongodb-org=3.4.1 mongodb-org-server=3.4.1 mongodb-org-shell=3.4.1 mongodb-org-mongos=3.4.1 mongodb-org-tools=3.4.1
 
 # Create the MongoDB data directory
 RUN mkdir -p /data/db
