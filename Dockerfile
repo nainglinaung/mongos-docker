@@ -17,6 +17,7 @@ RUN mkdir -p /cert
 
 COPY run.sh /run.sh
 COPY bitkey /cert/bitkey
+RUN chmod 400 /cert/bitkey
 COPY config.conf /config.conf
 
 
